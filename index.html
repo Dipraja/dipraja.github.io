@@ -1,51 +1,237 @@
-<!DOCTYPE html>
-<html lang="id">
+
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil Pribadi</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Furiansyah Dipraja</title>
+
+    <!-- Initial Icons from Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
+
+    <!-- Initial Framework CSS Boostrap v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <!-- Initial Font Nunito from Goggle Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;500;700;800&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gray-900 text-white">
-    <div class="max-w-4xl mx-auto mt-10 p-6 bg-gray-800 shadow-lg rounded-lg">
-        <div class="flex flex-col items-center text-center">
-            <img src="https://via.placeholder.com/150" alt="Foto Profil" class="w-32 h-32 rounded-full border-4 border-blue-500">
-            <h1 class="text-2xl font-bold mt-4">Nama Anda</h1>
-            <p class="text-gray-400">Full Stack Developer | UI/UX Enthusiast</p>
-            <p class="text-gray-300 mt-4 max-w-lg">Pengalaman lebih dari 4 tahun dalam pengembangan perangkat lunak, dengan keahlian dalam backend, frontend, dan desain UI/UX.</p>
-        </div>
-        
-        <div class="mt-6">
-            <h2 class="text-xl font-semibold">🔗 My Profile</h2>
-            <div class="mt-2 flex space-x-4">
-                <a href="#" class="bg-gray-700 px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-gray-600">LinkedIn</a>
-                <a href="#" class="bg-gray-700 px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-gray-600">GitHub</a>
-            </div>
-        </div>
-        
-        <div class="mt-6">
-            <h2 class="text-xl font-semibold">💻 Open Source Projects</h2>
-            <div class="mt-2 bg-gray-700 p-4 rounded-lg hover:bg-gray-600">
-                <h3 class="text-lg font-bold">Go Skeleton</h3>
-                <p class="text-gray-300">Powerful skeleton for your Go projects!</p>
-            </div>
-        </div>
-        
-        <div class="mt-6">
-            <h2 class="text-xl font-semibold">📚 Sharing</h2>
-            <div class="mt-2 grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bg-gray-700 p-4 rounded-lg hover:bg-gray-600">
-                    <h3 class="text-lg font-bold">Kitab Coding</h3>
-                    <p class="text-gray-300">Rekomendasi tempat belajar coding, mulai dari Web, Android, dll.</p>
-                    <a href="#" class="inline-block mt-2 px-4 py-2 bg-white text-black rounded-lg">Baca Kitab →</a>
+
+<style>
+    /* CARDS */
+    .card-profile {
+        border: none;
+        background-color: #494949b1;
+        border-radius: 31px;
+    }
+
+    .card-profile-link:hover {
+        transition: all .2s ease-in-out;
+        -webkit-transition: all .2s ease-in-out;
+        color: #4f8dcf;
+        background-color: #565656;
+    }
+
+    .card-profile-link:active {
+        color: #264c74;
+        background-color: #e8f3ff;
+    }
+
+    .card-profile-link {
+        border: none;
+        box-shadow: 0px 8px 27px rgba(0, 0, 0, 0.11);
+        border-radius: 16px;
+        background-color: #323232;
+        cursor: pointer;
+    }
+
+    .card-share {
+        padding: 10px;
+        border: none;
+        border-radius: 20px;
+    }
+
+    .card-share.coding {
+        background: #f0fffa4b;
+        border: 1px solid #3FAB87;
+    }
+
+    .card-share.ui-ux {
+        background: #f6efff40;
+        border: 1px solid #6E3FAB;
+    }
+
+    /* END OF CARDS */
+
+    .img-circle {
+        border-radius: 50%;
+        border: 8px solid #FFFFFF;
+        width: 150px;
+    }
+
+    .letter-spacing-1 {
+        letter-spacing: 1.5px;
+    }
+
+    .text-grey-small {
+        color: #a4a3a3;
+    }
+    .text-grey-medium {
+        color: #7C7C7C;
+    }
+
+    .text-grey-bold {
+        color: #606060;
+    }
+
+    .btn-kitab {
+        background-color: white !important;
+        border-radius: 30px;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+    }
+
+    .btn-skil {
+        font-size: 12px !important;
+    }
+
+    .font {
+        font-size: 25px;
+    }
+</style>
+
+<body style="font-family: 'Nunito', sans-serif;">
+
+    <section id="content">
+        <div class="container my-5">
+            <div class="row">
+                <!-- Sekilas Tentang Saya -->
+                <div class="col-md-4">
+                    <div class="card card-profile text-center p-3">
+                        <div class="card-body">
+                            <img src="assets/images/me.jpg" alt="" class="img-fluid img-circle">
+
+                            <h2 class="mt-3"><b>Rahmat Ramadhan Putra</b></h2>
+                            <span class="text-light letter-spacing-1" style="font-size: 13px; color: #b4b4b4 !important;">
+                                Full Stack Software Development Engineer
+                            </span>
+                            <p class="mt-3 text-light">Having over 4 years of experience in software development, I am currently working as a freelance full-stack developer. I am also deeply passionate and knowledgeable about startup strategies, UI/UX design, and product management</p>
+
+                            <!-- SKILS -->
+                            <div>
+                                <div class="mb-2">
+                                    <p class="letter-spacing-1 mb-2">PROGRAMMING</p>
+                                    <a class="btn btn-light btn-skil bg-white mb-2 me-1" disabled>HTML, CSS, Javascript</a>
+                                    <a class="btn btn-light btn-skil bg-white mb-2 me-1" disabled>PHP</a>
+                                    <a class="btn btn-light btn-skil bg-white mb-2 me-1" disabled>PHP Laravel</a>
+                                    <a class="btn btn-light btn-skil bg-white mb-2 me-1" disabled>PHP Codeigniter</a>
+                                    <a class="btn btn-light btn-skil bg-white mb-2 me-1" disabled>SQL</a>
+                                    <a class="btn btn-light btn-skil bg-white mb-2 me-1" disabled>MongoDB</a>
+                                    <a class="btn btn-light btn-skil bg-white mb-2 me-1" disabled>Golang</a>
+                                    <a class="btn btn-light btn-skil bg-white mb-2 me-1" disabled>RabbitMQ</a>
+                                </div>
+
+                                <div>
+                                    <p class="letter-spacing-1 mb-2">PRODUCT MANAGEMENT</p>
+                                    <a class="btn btn-light btn-skil bg-white mb-2 me-1" disabled>Creating PRD</a>
+                                    <a class="btn btn-light btn-skil bg-white mb-2 me-1" disabled>SCRUM</a>
+                                    <a class="btn btn-light btn-skil bg-white mb-2 me-1" disabled>Google Sheets, Docs, and Slides</a>
+                                    <a class="btn btn-light btn-skil bg-white mb-2 me-1" disabled>UI Design in Figma</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-gray-700 p-4 rounded-lg hover:bg-gray-600">
-                    <h3 class="text-lg font-bold">Kitab UI/UX dan Product Management</h3>
-                    <p class="text-gray-300">Tempat belajar UI/UX, desain, dan manajemen produk.</p>
-                    <a href="#" class="inline-block mt-2 px-4 py-2 bg-white text-black rounded-lg">Baca Kitab →</a>
+
+                <!-- Link ke My Online CV -->
+                <div class="col-md-4 mt-5">
+
+                    <div class="row mx-2">
+                        <h6 class="letter-spacing-1 text-grey-small mb-4">🤓 MY PROFILE</h6>
+                        <div class="col-md-12">
+                            <div class="card card-profile-link mb-4" onclick="location.href = 'https://www.linkedin.com/in/rahmatrdn/';">
+                                <div class="card-body text-center">
+                                    <div class="d-flex justify-content-between mx-3 py-1">
+                                        <i class="fab fa-linkedin font"></i>
+                                        <h5 class="mb-0"><strong>Linkedin</strong></h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="card card-profile-link mb-4" onclick="location.href = 'https://github.com/rahmatrdn';">
+                                <div class="card-body text-center">
+                                    <div class="d-flex justify-content-between mx-3 py-1">
+                                        <i class="fab fa-github font"></i>
+                                        <h5 class="mb-0"><strong>Github</strong></h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="col-md-12">
+                            <div class="card card-profile-link mb-4" onclick="location.href = 'https://drive.google.com/file/d/1v3e1T_O9fDtETjZEbaTzR4-BAF0Fs7Dy/view?usp=share_link';">
+                                <div class="card-body text-center">
+                                    <div class="d-flex justify-content-between mx-3 py-1">
+                                        <i class="fas fa-id-badge font"></i>
+                                        <h5 class="mb-0"><strong>Creative CV</strong></h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+
+                    <div class="row mx-2 mt-5">
+                        <h6 class="letter-spacing-1 text-grey-small mb-4">👨‍💻 MY OPEN SOURCE PROJECT</h6>
+                        <div class="col-md-12">
+                            <div class="card card-profile-link mb-4" onclick="location.href = 'https://github.com/rahmatrdn/go-skeleton';">
+                                <div class="card-body ">
+                                    <div class="mx-3 py-1">
+                                        <h5 class="mb-1"><strong>Go Skeleton</strong></h5>
+                                        <p class="mb-0" style="color: rgb(148, 148, 148);">Powerfull skeleton for your Go projects!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Sharing -->
+                <div class="col-md-4 my-5">
+
+                    <div class="row mx-2">
+                        <h6 class="letter-spacing-1 text-grey-small mb-4">🤝 SHARING</h6>
+
+                        <!-- Kitab Coding -->
+                        <div class="col-md-12 mb-4">
+                            <div class="card card-share coding">
+                                <div class="card-body">
+                                    <h4><b><i class="fas fa-code"></i> Kitab Coding</b></h4>
+                                    <p class="">Rekomendasi tempat belajar Coding, mulai dari Web,
+                                        Android, dll. <br> Terdapat
+                                        juga alur belajar buat kamu yang bingung belajar bikin aplikasi dari mana</p>
+
+                                    <div class="d-grid gap-2 mt-4">
+                                        <a target="_blank" href="#" class="btn btn-light btn-md btn-kitab px-4 letter-spacing-1">
+                                            Baca Kitab →
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+
+                    </div>
+                </div>
+
+
             </div>
         </div>
-    </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
+
 </html>
